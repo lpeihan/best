@@ -13,6 +13,6 @@
     "vue"
   ],
   "stylelint.validate": ["css", "less", "vue", "html"],
-  "cSpell.words": [],
+  "cSpell.words": ["cliui"],
   "i18n-ally.localesPaths": ["src/locales", "src/locales/lang"]
 }

@@ -1,13 +1,15 @@
 const globals = require('globals');
 const pluginJs = require('@eslint/js');
 const pluginVue = require('eslint-plugin-vue');
-const prettier = require('eslint-config-prettier');
+const eslintConfigPrettier = require('eslint-config-prettier');
+const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
 
 module.exports = [
   { languageOptions: { globals: globals.node } },
   pluginJs.configs.recommended,
   ...pluginVue.configs['flat/recommended'],
-  prettier,
+  eslintConfigPrettier,
+  eslintPluginPrettierRecommended,
   {
     languageOptions: { globals: globals.browser },
     files: ['**/*.{js,mjs,cjs,vue}'],
