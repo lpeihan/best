@@ -4,14 +4,19 @@
   "main": "index.js",
   "scripts": {
     "build": "node build/build.js",
+    "lint": "eslint --fix",
     "lint:prettier": "prettier . --write --log-level warn"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.5.0",
     "chalk": "^4.1.2",
     "cliui": "^8.0.1",
     "cross-env": "^7.0.3",
+    "eslint": "9.x",
+    "eslint-plugin-vue": "^9.26.0",
+    "globals": "^15.6.0",
     "ora": "^5.4.1",
     "prettier": "^3.3.2",
     "rimraf": "^5.0.7",
