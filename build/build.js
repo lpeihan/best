@@ -3,6 +3,8 @@
 const { rimraf } = require('rimraf');
 const webpack = require('webpack');
 
+process.env.NODE_ENV = 'production';
+
 const { error, done } = require('./utils/logger');
 const { logWithSpinner, stopSpinner } = require('./utils/spinner');
 const paths = require('./utils/paths');
