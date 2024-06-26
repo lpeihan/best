@@ -18,17 +18,17 @@ rimraf(paths.resolve('dist')).then(() => {
 
     if (err) throw err;
 
-    process.stdout.write(
-      stats.toString({
-        colors: true,
-        modules: false,
-        children: false,
-        chunks: false,
-        chunkModules: false,
-      }) + '\n\n',
-    );
-
     if (stats.hasErrors()) {
+      process.stdout.write(
+        stats.toString({
+          colors: true,
+          modules: false,
+          children: false,
+          chunks: false,
+          chunkModules: false,
+        }) + '\n\n',
+      );
+
       error('Build failed with errors.\n');
       process.exit(1);
     }
