@@ -7,6 +7,7 @@ const { VueLoaderPlugin } = require('vue-loader');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const HTMLPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const config = require('./config');
 const { env } = require(`../config/${mode}.env.js`);
 const dayjs = require('dayjs');
@@ -131,6 +132,13 @@ module.exports = {
         VERSION: JSON.stringify(version),
         BUILD_TIME: JSON.stringify(dayjs().format('YYYY-MM-DD HH:mm:ss')),
       },
+    }),
+    new ESLintPlugin({
+      emitError: true,
+      emitWarning: true,
+      extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue'],
+      formatter: require('eslint-formatter-friendly'),
+      configType: 'flat',
     }),
   ],
 };
