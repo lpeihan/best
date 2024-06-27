@@ -1,6 +1,7 @@
 const paths = require('./utils/paths');
 const { VueLoaderPlugin } = require('vue-loader');
 const HTMLPlugin = require('html-webpack-plugin');
+const config = require('./config');
 
 const isProd = process.env.NODE_ENV === 'production';
 const outputFileName = `js/[name]${isProd ? '.[contenthash:8]' : ''}.js`;
@@ -13,7 +14,7 @@ module.exports = {
   },
 
   output: {
-    path: paths.resolve('dist'),
+    path: paths.resolve(config.outputDir),
     publicPath: '/',
     filename: outputFileName,
     chunkFilename: outputFileName,

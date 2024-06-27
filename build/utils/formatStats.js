@@ -44,7 +44,7 @@ module.exports = function formatStats(stats, dir) {
     return (size / 1024).toFixed(2) + ' KiB';
   }
 
-  function getGzipSize(asset) {
+  function getGzippedSize(asset) {
     const filepath = path.resolve(process.cwd(), path.join(dir, asset.name));
     const buffer = fs.readFileSync(filepath);
     return formatSize(zlib.gzipSync(buffer).length);
@@ -64,7 +64,7 @@ module.exports = function formatStats(stats, dir) {
               ? chalk.green(path.join(dir, asset.name))
               : chalk.blue(path.join(dir, asset.name)),
             formatSize(asset.size),
-            getGzipSize(asset),
+            getGzippedSize(asset),
           ),
         )
         .join(`\n`),

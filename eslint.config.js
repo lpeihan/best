@@ -16,6 +16,7 @@ module.exports = [
     ignores: ['dist', 'node_modules', 'public'],
     rules: {
       'vue/no-multiple-template-root': 'off',
+      'vue/multi-word-component-names': 'off',
     },
   },
 ];

@@ -10,7 +10,7 @@ const { logWithSpinner, stopSpinner } = require('./utils/spinner');
 const paths = require('./utils/paths');
 const formatStats = require('./utils/formatStats');
 
-const webpackProdConf = require('./webpack.prod');
+const webpackProdConf = require('./webpack.prod.conf');
 
 logWithSpinner('Building for production...\n');
 
