@@ -7,7 +7,6 @@
         </keep-alive>
       </transition>
     </router-view>
-    12
   </div>
 </template>
 

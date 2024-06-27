@@ -1,3 +1,4 @@
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { merge } = require('webpack-merge');
 
@@ -49,6 +50,9 @@ module.exports = merge(webpackBaseConf, cssConf, {
         },
         // parallel: options.parallel,
         extractComments: false,
+      }),
+      new CssMinimizerPlugin({
+        parallel: true,
       }),
     ],
     moduleIds: 'deterministic',
