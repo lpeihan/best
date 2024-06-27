@@ -3,18 +3,16 @@
 const { rimraf } = require('rimraf');
 const webpack = require('webpack');
 
-process.env.NODE_ENV = 'production';
-
 const { error, done } = require('./utils/logger');
 const { logWithSpinner, stopSpinner } = require('./utils/spinner');
 const paths = require('./utils/paths');
 const formatStats = require('./utils/formatStats');
-
 const webpackProdConf = require('./webpack.prod.conf');
+const config = require('./config');
 
 logWithSpinner('Building for production...\n');
 
-rimraf(paths.resolve('dist')).then(() => {
+rimraf(paths.resolve(config.outputDir)).then(() => {
   webpack(webpackProdConf, (err, stats) => {
     stopSpinner(false);
 
@@ -35,7 +33,7 @@ rimraf(paths.resolve('dist')).then(() => {
       process.exit(1);
     }
 
-    console.log(formatStats(stats, 'dist'));
+    console.log(formatStats(stats, config.outputDir));
 
     done('Build complete.\n');
   });
