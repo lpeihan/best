@@ -1,7 +1,7 @@
 'use strict';
 
-const ora = require('ora');
 const chalk = require('chalk');
+const ora = require('ora');
 
 const spinner = ora();
 let lastMsg = null;

@@ -1,11 +1,11 @@
 'use strict';
 
-const { merge } = require('webpack-merge');
 const ProgressPlugin = require('progress-webpack-plugin');
+const { merge } = require('webpack-merge');
 
-const webpackBaseConf = require('./webpack.base.conf');
-const cssConf = require('./css.conf');
 const config = require('./config');
+const cssConf = require('./css.conf');
+const webpackBaseConf = require('./webpack.base.conf');
 
 module.exports = merge(webpackBaseConf, cssConf, {
   mode: 'development',

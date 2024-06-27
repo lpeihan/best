@@ -73,9 +73,9 @@ module.exports = function formatStats(stats, dir) {
   const time = stats.endTime - stats.startTime;
   const now = dayjs().format('YYYY-MM-DD HH:mm:ss');
   const hash = stats.hash;
-  const info = `Build at: ${chalk.white(now)} - Hash: ${chalk.white(
-    hash,
-  )} - Time: ${chalk.white(time)}ms`;
+  const info = `Build at: ${chalk.white(now)} - Hash: ${chalk.white(hash)} - Time: ${chalk.white(
+    time,
+  )}ms`;
 
   return `${ui.toString()}\n\n  ${chalk.gray(
     `Images and other types of assets omitted.`,

@@ -1,16 +1,18 @@
-const mode = process.env.MODE || 'local';
+const mode = process.env.MODE || 'dev';
+
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+const dayjs = require('dayjs');
+const ESLintPlugin = require('eslint-webpack-plugin');
+const HTMLPlugin = require('html-webpack-plugin');
+const { VueLoaderPlugin } = require('vue-loader');
+const { DefinePlugin } = require('webpack');
+
+const { env } = require(`../config/${mode}.env.js`);
 const { version } = require('../package.json');
 
-const { DefinePlugin } = require('webpack');
-const paths = require('./utils/paths');
-const { VueLoaderPlugin } = require('vue-loader');
-const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-const HTMLPlugin = require('html-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
 const config = require('./config');
-const { env } = require(`../config/${mode}.env.js`);
-const dayjs = require('dayjs');
+const paths = require('./utils/paths');
 
 const isProd = process.env.NODE_ENV === 'production';
 const outputFileName = `js/[name]${isProd ? '.[contenthash:8]' : ''}.js`;
@@ -123,6 +125,12 @@ module.exports = {
         },
       ],
     }),
+    new ESLintPlugin({
+      emitError: true,
+      emitWarning: true,
+      extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue'],
+      formatter: require('eslint-formatter-friendly'),
+    }),
     new DefinePlugin({
       // vue3 feature flags <http://link.vuejs.org/feature-flags>
       __VUE_OPTIONS_API__: 'true',
@@ -132,13 +140,6 @@ module.exports = {
         VERSION: JSON.stringify(version),
         BUILD_TIME: JSON.stringify(dayjs().format('YYYY-MM-DD HH:mm:ss')),
       },
-    }),
-    new ESLintPlugin({
-      emitError: true,
-      emitWarning: true,
-      extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue'],
-      formatter: require('eslint-formatter-friendly'),
-      configType: 'flat',
     }),
   ],
 };

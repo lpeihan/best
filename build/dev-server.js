@@ -4,9 +4,8 @@ const chalk = require('chalk');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 
-const { info } = require('./utils/logger');
 const getLocalIP = require('./utils/getLocalIP');
-
+const { info } = require('./utils/logger');
 const webpackDevConf = require('./webpack.dev.conf');
 
 const devServerOptions = webpackDevConf.devServer;
