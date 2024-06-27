@@ -10,3 +10,4 @@ html
 .idea
 *.sh
 *.md
+pnpm-lock.yaml
