@@ -54,6 +54,15 @@ const genStyleRules = () => {
 
     if (loader) {
       loaders.push({ loader, options: loaderOptions });
+      loaders.push({
+        loader: 'style-resources-loader',
+        options: {
+          patterns: [
+            paths.resolve('src/styles/mixins.less'),
+            paths.resolve('src/styles/vars.less'),
+          ],
+        },
+      });
     }
 
     return { test, use: loaders };

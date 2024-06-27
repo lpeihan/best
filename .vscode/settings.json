@@ -13,6 +13,15 @@
     "vue"
   ],
   "stylelint.validate": ["css", "less", "vue", "html"],
-  "cSpell.words": ["cliui", "preinstall", "pxtorem", "stylelint", "tinify"],
+  "cSpell.words": [
+    "cliui",
+    "preinstall",
+    "pxtorem",
+    "stylelint",
+    "tinify",
+    "unplugin",
+    "vant",
+    "vconsole"
+  ],
   "i18n-ally.localesPaths": ["src/locales", "src/locales/lang"]
 }

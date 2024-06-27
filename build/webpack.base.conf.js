@@ -1,10 +1,12 @@
 const mode = process.env.MODE || 'dev';
 
+const { VantResolver } = require('@vant/auto-import-resolver');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const dayjs = require('dayjs');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const HTMLPlugin = require('html-webpack-plugin');
+const ComponentsPlugin = require('unplugin-vue-components/webpack');
 const { VueLoaderPlugin } = require('vue-loader');
 const { DefinePlugin } = require('webpack');
 
@@ -19,6 +21,10 @@ const outputFileName = `js/[name]${isProd ? '.[contenthash:8]' : ''}.js`;
 
 module.exports = {
   context: process.cwd(),
+
+  // externals: {
+  //   vconsole: 'VConsole',
+  // },
 
   entry: {
     app: './src/main.js',
@@ -86,8 +92,35 @@ module.exports = {
         test: /\.(svg)(\?.*)?$/,
         type: 'asset/resource',
         generator: { filename: 'img/[contenthash:8][ext][query]' },
+        exclude: [paths.resolve('src/assets/svgIcons')],
       },
 
+      {
+        test: /\.(svg)(\?.*)?$/,
+        generator: { filename: 'img/[contenthash:8][ext][query]' },
+        include: [paths.resolve('src/assets/svgIcons')],
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+            options: {
+              symbolId: '[name]',
+            },
+          },
+          {
+            loader: 'svgo-loader',
+            options: {
+              plugins: [
+                {
+                  name: 'removeAttrs',
+                  params: {
+                    attrs: ['fill', 'fill-rule'],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
       // media
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
@@ -140,6 +173,12 @@ module.exports = {
         VERSION: JSON.stringify(version),
         BUILD_TIME: JSON.stringify(dayjs().format('YYYY-MM-DD HH:mm:ss')),
       },
+    }),
+
+    ComponentsPlugin({
+      dirs: ['src/components'],
+      dts: false,
+      resolvers: [VantResolver()],
     }),
   ],
 };
