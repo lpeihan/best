@@ -25,10 +25,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async-validator": "^4.2.5",
+    "axios": "^1.7.2",
     "core-js": "^3.37.1",
     "dayjs": "^1.11.11",
-    "vue": "^3.4.30",
-    "vue-router": "^4.4.0"
+    "lodash": "^4.17.21",
+    "mitt": "^3.0.1",
+    "nprogress": "^0.2.0",
+    "pinia": "^2.1.7",
+    "qrcodejs2": "^0.0.2",
+    "ua-parser-js": "^1.0.37",
+    "vant": "^4.9.0",
+    "vue": "^3.4.27",
+    "vue-clipboard3": "^2.0.0",
+    "vue-i18n": "9",
+    "vue-router": "^4.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",
@@ -82,6 +93,7 @@
     "terser-webpack-plugin": "^5.3.10",
     "thread-loader": "^4.0.2",
     "ts-loader": "^9.5.1",
+    "unplugin-auto-import": "^0.17.6",
     "unplugin-vue-components": "^0.25.2",
     "vue-loader": "^17.4.2",
     "vue-style-loader": "^4.1.3",

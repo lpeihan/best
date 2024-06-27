@@ -6,6 +6,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const dayjs = require('dayjs');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const HTMLPlugin = require('html-webpack-plugin');
+const AutoImport = require('unplugin-auto-import/webpack');
 const ComponentsPlugin = require('unplugin-vue-components/webpack');
 const { VueLoaderPlugin } = require('vue-loader');
 const { DefinePlugin } = require('webpack');
@@ -22,9 +23,9 @@ const outputFileName = `js/[name]${isProd ? '.[contenthash:8]' : ''}.js`;
 module.exports = {
   context: process.cwd(),
 
-  // externals: {
-  //   vconsole: 'VConsole',
-  // },
+  externals: {
+    vconsole: 'VConsole',
+  },
 
   entry: {
     app: './src/main.js',
@@ -41,7 +42,7 @@ module.exports = {
     alias: {
       '@': paths.resolve('src'),
     },
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue', '.json', '.mjs'],
   },
 
   module: {
@@ -175,8 +176,12 @@ module.exports = {
       },
     }),
 
+    AutoImport.default({
+      resolvers: [VantResolver()],
+    }),
+
     ComponentsPlugin({
-      dirs: ['src/components'],
+      dirs: [paths.resolve('src/components')],
       dts: false,
       resolvers: [VantResolver()],
     }),

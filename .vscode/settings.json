@@ -15,8 +15,11 @@
   "stylelint.validate": ["css", "less", "vue", "html"],
   "cSpell.words": [
     "cliui",
+    "nprogress",
+    "pinia",
     "preinstall",
     "pxtorem",
+    "qrcodejs",
     "stylelint",
     "tinify",
     "unplugin",
