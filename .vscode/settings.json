@@ -15,6 +15,7 @@
   "stylelint.validate": ["css", "less", "vue", "html"],
   "cSpell.words": [
     "cliui",
+    "commitlint",
     "nprogress",
     "pinia",
     "preinstall",
