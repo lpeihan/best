@@ -20,6 +20,14 @@ module.exports = merge(webpackBaseConf, cssConf, {
     host: '0.0.0.0',
     port: config.port,
     liveReload: false,
+    client: {
+      overlay: false,
+    },
+    setupMiddlewares(middlewares, devServer) {
+      require('../mocks/index')(devServer.app);
+
+      return middlewares;
+    },
   },
 
   infrastructureLogging: {
