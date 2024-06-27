@@ -2,6 +2,10 @@
   "name": "best",
   "version": "1.0.0",
   "main": "index.js",
+  "packageManager": "pnpm@9.1.0",
+  "engines": {
+    "node": ">=18.20.0"
+  },
   "scripts": {
     "serve": "cross-env NODE_ENV=env MODE=local node build/dev-server.js",
     "build": "cross-env NODE_ENV=production node build/build.js",
