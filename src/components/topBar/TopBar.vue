@@ -128,10 +128,7 @@ const handleBack = () => {
 
       &::after {
         position: absolute;
-        top: -10px;
-        right: -10px;
-        bottom: -10px;
-        left: -10px;
+        inset: -10px;
         overflow: hidden;
         border-radius: 50%;
         background-color: var(--black);
