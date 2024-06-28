@@ -12,7 +12,7 @@
     "lint": "eslint --fix",
     "lint:style": "stylelint \"src/**/*.{vue,css,less}\" --fix",
     "lint:prettier": "prettier . --write --log-level warn",
-    "commit": "commit",
+    "commit": "cz",
     "prepare": "husky",
     "deploy:dev": "cross-env MODE=dev npm run build",
     "deploy:prod": "cross-env MODE=prod npm run build",
