@@ -110,6 +110,11 @@
     "webpack-dev-server": "^5.0.4",
     "webpack-merge": "^5.9.0"
   },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
   "lint-staged": {
     "*.{js,vue}": [
       "npm run lint"
