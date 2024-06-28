@@ -1,5 +1,3 @@
-const mode = process.env.MODE || 'dev';
-
 const { VantResolver } = require('@vant/auto-import-resolver');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -11,10 +9,9 @@ const ComponentsPlugin = require('unplugin-vue-components/webpack');
 const { VueLoaderPlugin } = require('vue-loader');
 const { DefinePlugin } = require('webpack');
 
-const { env } = require(`../config/${mode}.env.js`);
+const config = require('../config');
 const { version } = require('../package.json');
 
-const config = require('./config');
 const paths = require('./utils/paths');
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -170,7 +167,7 @@ module.exports = {
       __VUE_OPTIONS_API__: 'true',
       __VUE_PROD_DEVTOOLS__: 'false',
       'process.env': {
-        ...env,
+        ...config.env,
         VERSION: JSON.stringify(version),
         BUILD_TIME: JSON.stringify(dayjs().format('YYYY-MM-DD HH:mm:ss')),
       },
