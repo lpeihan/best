@@ -3,7 +3,8 @@
 const ProgressPlugin = require('progress-webpack-plugin');
 const { merge } = require('webpack-merge');
 
-const config = require('./config');
+const config = require('../config');
+
 const cssConf = require('./css.conf');
 const webpackBaseConf = require('./webpack.base.conf');
 
