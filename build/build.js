@@ -2,8 +2,10 @@
 
 const { rimraf } = require('rimraf');
 const webpack = require('webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-const config = require('./config');
+const config = require('../config');
+
 const formatStats = require('./utils/formatStats');
 const { error, done } = require('./utils/logger');
 const paths = require('./utils/paths');
@@ -13,6 +15,10 @@ const webpackProdConf = require('./webpack.prod.conf');
 logWithSpinner('Building for production...\n');
 
 rimraf(paths.resolve(config.outputDir)).then(() => {
+  if (process.env.npm_config_report) {
+    webpackProdConf.plugins.push(new BundleAnalyzerPlugin());
+  }
+
   webpack(webpackProdConf, (err, stats) => {
     stopSpinner(false);
 
