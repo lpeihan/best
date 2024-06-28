@@ -73,10 +73,10 @@ pnpm deploy-prod # 上传到正式环境
 ## 打包报错
 
 ```shell
-# On Unix-like (Linux, macOS, Git bash, etc.)
+# On Unix-like (Linux, macOS, Git bash, etc.):
 export NODE_OPTIONS=--openssl-legacy-provider
 
-# On Windows command prompt
+# On Windows command prompt:
 set NODE_OPTIONS=--openssl-legacy-provider
 
 ```
