@@ -57,10 +57,12 @@
     "chalk": "^4.1.2",
     "cli-table3": "^0.6.5",
     "cliui": "^8.0.1",
+    "commitizen": "^4.3.0",
     "copy-webpack-plugin": "^12.0.2",
     "cross-env": "^7.0.3",
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-formatter-friendly": "^7.0.0",
@@ -118,5 +120,10 @@
     "*.{ts,js,css,less}": [
       "npm run lint:prettier"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
