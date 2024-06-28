@@ -1,12 +1,6 @@
+public
 dist
 node_modules
-public
 .husky
-.bin
-docs
-html
 .vscode
-.idea
-*.sh
-*.md
 pnpm-lock.yaml

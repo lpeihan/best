@@ -3,7 +3,7 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: ['plugin:vue/vue3-essential', 'eslint:recommended', 'plugin:prettier/recommended'],
+  extends: ['plugin:vue/vue3-essential', 'eslint:recommended', 'prettier'],
   parserOptions: {
     parser: '@babel/eslint-parser',
   },
@@ -32,11 +32,11 @@ module.exports = {
         ignores: [],
       },
     ],
-    'prettier/prettier': [
-      'error',
-      {
-        ...require('./.prettierrc.js'),
-      },
-    ],
+    // 'prettier/prettier': [
+    //   'error',
+    //   {
+    //     ...require('./.prettierrc.js'),
+    //   },
+    // ],
   },
 };
