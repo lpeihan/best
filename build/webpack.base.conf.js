@@ -16,7 +16,7 @@ const paths = require('./utils/paths');
 
 const isProd = process.env.NODE_ENV === 'production';
 const outputFileName = `js/[name]${isProd ? '.[contenthash:8]' : ''}.js`;
-
+console.log(process.cwd());
 module.exports = {
   context: process.cwd(),
 

@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const chalk = require('chalk');
-const Table = require('cli-table3');
+const ui = require('cliui')({ width: process.stdout.columns || 80 });
 const ora = require('ora');
 const tinify = require('tinify');
 
@@ -18,6 +18,10 @@ function isImageFile(filePath) {
 
 function bytesToKiB(bytes) {
   return (bytes / 1024).toFixed(2);
+}
+
+function makeRow(a, b, c) {
+  return `  ${a}\t    ${b}\t ${c}`;
 }
 
 function traverseDirectory(dir, files) {
@@ -46,12 +50,13 @@ async function start() {
     const files = [];
     traverseDirectory(path.join(__dirname, '../src'), files);
 
-    const table = new Table({
-      head: ['Filename', 'Original Size', 'Compressed Size'],
-      colWidths: [45, 20, 20],
-    });
-
     spinner.start();
+    let str =
+      makeRow(
+        chalk.cyan.bold(`Filename`),
+        chalk.cyan.bold(`Original Size`),
+        chalk.cyan.bold(`Compressed Size`),
+      ) + `\n\n`;
     for (const item of files.sort((a, b) => b.size - a.size)) {
       const shouldCompress = item.size >= 100;
 
@@ -61,15 +66,17 @@ async function start() {
 
       const compressedSize = bytesToKiB(fs.statSync(item.filePath).size);
 
-      table.push([
-        shouldCompress ? chalk.cyanBright(item.relativePath) : chalk.blue(item.relativePath),
-        chalk.green(item.size + ' Kib'),
-        chalk.green(compressedSize + ' Kib'),
-      ]);
+      str +=
+        makeRow(
+          shouldCompress ? chalk.cyanBright(item.relativePath) : chalk.blue(item.relativePath),
+          chalk.green(item.size + ' Kib'),
+          chalk.green(compressedSize + ' Kib'),
+        ) + '\n';
     }
     spinner.stop();
 
-    console.log(table.toString());
+    ui.div(str);
+    console.log(ui.toString());
   } catch (err) {
     console.log(err);
   }
