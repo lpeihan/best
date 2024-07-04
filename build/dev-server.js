@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 
 const getLocalIP = require('./utils/getLocalIP');
-const { info } = require('./utils/logger');
+const { info, clearConsole } = require('./utils/logger');
 const webpackDevConf = require('./webpack.dev.conf');
 
 const devServerOptions = webpackDevConf.devServer;
@@ -22,6 +22,7 @@ compiler.hooks.done.tap('serve', (stats) => {
   if (stats.hasErrors()) {
     return;
   }
+  clearConsole();
   console.log();
   console.log();
   console.log(`App running at:`);
