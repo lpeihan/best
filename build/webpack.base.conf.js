@@ -4,7 +4,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const dayjs = require('dayjs');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const HTMLPlugin = require('html-webpack-plugin');
-const AutoImport = require('unplugin-auto-import/webpack');
+// const AutoImport = require('unplugin-auto-import/webpack');
 const ComponentsPlugin = require('unplugin-vue-components/webpack');
 const { VueLoaderPlugin } = require('vue-loader');
 const { DefinePlugin } = require('webpack');
@@ -173,9 +173,9 @@ module.exports = {
       },
     }),
 
-    AutoImport.default({
-      resolvers: [VantResolver()],
-    }),
+    // AutoImport.default({
+    //   resolvers: [VantResolver()],
+    // }),
 
     ComponentsPlugin({
       dirs: [paths.resolve('src/components')],
