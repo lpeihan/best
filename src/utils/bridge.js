@@ -1,7 +1,6 @@
 import { showToast } from 'vant';
 
 import { showLoading, closeLoading } from '@/components';
-import { useStore } from '@/store';
 import { parseParams } from '@/utils';
 
 const BRIDGE_NAME = 'best';
@@ -11,33 +10,22 @@ const Code = {
 };
 
 let id = 0;
-function getCallbackName() {
-  return 'BRIDGE_CALLBACK_' + id++;
-}
+const getCallbackName = () => `BRIDGE_CALLBACK_${id++}`;
 
-function stringifyJson(data) {
-  if (typeof data === 'object' || typeof data === 'number') {
-    return JSON.stringify(data);
-  }
+const stringifyJson = (data) =>
+  typeof data === 'object' || typeof data === 'number' ? JSON.stringify(data) : data;
 
-  return data;
-}
-
-function parseJson(data) {
+const parseJson = (data) => {
   try {
     return JSON.parse(data);
-  } catch (_) {
+  } catch (e) {
+    console.error('JSON parsing error:', e);
     return data;
   }
-}
+};
 
 const bridge = {
   isApp: () => Boolean(window[BRIDGE_NAME]),
-  get userId() {
-    const store = useStore();
-
-    return store.userInfo.id;
-  },
   invoke(name, params = {}, options = {}) {
     if (!this.isApp()) {
       return Promise.resolve({ code: Code.Success, data: '' });
@@ -49,6 +37,7 @@ const bridge = {
       }
 
       const callbackName = getCallbackName();
+
       window[callbackName] = function (res) {
         closeLoading();
         res.data = parseJson(res.data);
