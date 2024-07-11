@@ -40,8 +40,7 @@ const bridge = {
   },
   invoke(name, params = {}, options = {}) {
     if (!this.isApp()) {
-      Promise.resolve({ code: Code.Success, data: '' });
-      return;
+      return Promise.resolve({ code: Code.Success, data: '' });
     }
 
     return new Promise((resolve, reject) => {
