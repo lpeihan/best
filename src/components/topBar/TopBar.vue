@@ -94,7 +94,7 @@ const handleBack = () => {
   align-items: center;
   height: var(--top-bar-height);
   overflow: hidden;
-  color: var(--text-color);
+  color: var(--text-color-1);
   text-align: center;
   background: var(--white);
   box-sizing: content-box;

@@ -110,7 +110,7 @@ const handleClick = (item) => {
     .text {
       margin-top: 2px;
       font-size: 12px;
-      color: #7e7e7e;
+      color: var(--text-color-3);
     }
   }
 }

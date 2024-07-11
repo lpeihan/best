@@ -144,10 +144,10 @@ const handleLogin = async () => {
   }
 
   .send-btn {
-    color: var(--text-color);
+    color: var(--text-color-1);
 
     &.disabled {
-      color: var(--text-color);
+      color: var(--text-color-1);
     }
   }
 
@@ -156,10 +156,10 @@ const handleLogin = async () => {
     justify-content: center;
     margin-top: 20px;
     font-size: 13px;
-    color: var(--text-color);
+    color: var(--text-color-1);
 
     a {
-      color: var(--text-color);
+      color: var(--text-color-1);
     }
   }
 

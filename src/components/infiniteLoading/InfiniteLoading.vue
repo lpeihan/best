@@ -193,7 +193,7 @@ const callback = (page, res, error) => {
     justify-content: center;
     align-items: center;
     height: @height;
-    color: #c8c9cc;
+    color: var(--text-color-3);
 
     .line {
       width: 40px;
@@ -214,7 +214,7 @@ const callback = (page, res, error) => {
 
     .text {
       margin-top: 16px;
-      color: #c8c9cc;
+      color: var(--text-color-3);
     }
   }
 
