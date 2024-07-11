@@ -5,7 +5,7 @@ module.exports = {
   },
   extends: ['plugin:vue/vue3-essential', 'eslint:recommended', 'prettier'],
   parserOptions: {
-    parser: ['@babel/eslint-parser', '@typescript-eslint/parser'],
+    parser: '@babel/eslint-parser',
   },
   plugins: ['import', '@typescript-eslint'],
   rules: {
@@ -39,4 +39,12 @@ module.exports = {
     //   },
     // ],
   },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+      },
+    },
+  ],
 };
