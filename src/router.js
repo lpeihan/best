@@ -8,12 +8,20 @@ import 'nprogress/nprogress.css';
 
 NProgress.configure({ showSpinner: false });
 
+const RouteIndex = {
+  First: 1,
+  Second: 2,
+  Third: 3,
+  Fourth: 4,
+  Fifth: 5,
+};
+
 const routes = [
   {
     path: '/',
     name: 'home',
     meta: {
-      index: 0,
+      index: RouteIndex.First,
       auth: false,
     },
     component: require('@/views/home/Home.vue').default,
@@ -22,7 +30,7 @@ const routes = [
     path: '/welfare',
     name: 'welfare',
     meta: {
-      index: 0,
+      index: RouteIndex.First,
       auth: true,
     },
     component: () => import(/* webpackChunkName: "welfare" */ '@/views/welfare/Welfare.vue'),
@@ -31,7 +39,7 @@ const routes = [
     path: '/video',
     name: 'video',
     meta: {
-      index: 0,
+      index: RouteIndex.First,
       auth: true,
     },
     component: () => import(/* webpackChunkName: "video" */ '@/views/video/Video.vue'),
@@ -40,7 +48,7 @@ const routes = [
     path: '/social',
     name: 'social',
     meta: {
-      index: 0,
+      index: RouteIndex.First,
       auth: true,
     },
     component: () => import(/* webpackChunkName: "social" */ '@/views/social/Social.vue'),
@@ -49,7 +57,7 @@ const routes = [
     path: '/user',
     name: 'user',
     meta: {
-      index: 0,
+      index: RouteIndex.First,
       auth: true,
     },
     component: () => import(/* webpackChunkName: "user" */ '@/views/user/User.vue'),
@@ -58,7 +66,7 @@ const routes = [
     path: '/user/settings',
     name: 'settings',
     meta: {
-      index: 1,
+      index: RouteIndex.Second,
       auth: true,
     },
     component: () => import(/* webpackChunkName: "settings" */ '@/views/user/Settings.vue'),
@@ -67,7 +75,7 @@ const routes = [
     path: '/user/contact',
     name: 'contact',
     meta: {
-      index: 1,
+      index: RouteIndex.Second,
       auth: true,
     },
     component: () => import(/* webpackChunkName: "contact" */ '@/views/user/Contact.vue'),
@@ -76,7 +84,7 @@ const routes = [
     path: '/user/login',
     name: 'login',
     meta: {
-      index: 4,
+      index: RouteIndex.Fifth,
       auth: false,
     },
     component: () => import(/* webpackChunkName: "login" */ '@/views/user/Login.vue'),
@@ -85,7 +93,7 @@ const routes = [
     path: '/user/wechat',
     name: 'wechat',
     meta: {
-      index: 5,
+      index: RouteIndex.Fifth,
       auth: false,
     },
     component: () => import(/* webpackChunkName: "wechat" */ '@/views/user/Wechat.vue'),
@@ -94,7 +102,7 @@ const routes = [
     path: '/user/sex',
     name: 'sex',
     meta: {
-      index: 6,
+      index: RouteIndex.Fifth,
       auth: false,
     },
     component: () => import(/* webpackChunkName: "sex" */ '@/views/user/Sex.vue'),
@@ -103,7 +111,7 @@ const routes = [
     path: '/user/birthday',
     name: 'birthday',
     meta: {
-      index: 7,
+      index: RouteIndex.Fifth,
       auth: false,
     },
     component: () => import(/* webpackChunkName: "birthday" */ '@/views/user/Birthday.vue'),
@@ -112,7 +120,7 @@ const routes = [
     path: '/share',
     name: 'share',
     meta: {
-      index: 1,
+      index: RouteIndex.Second,
       auth: true,
     },
     component: () => import(/* webpackChunkName: "share" */ '@/views/share/Share.vue'),
@@ -121,7 +129,7 @@ const routes = [
     path: '/share/records',
     name: 'shareRecords',
     meta: {
-      index: 2,
+      index: RouteIndex.Third,
       auth: true,
     },
     component: () =>
@@ -131,16 +139,16 @@ const routes = [
     path: '/privacy',
     name: 'privacy',
     meta: {
-      index: 5,
+      index: RouteIndex.Fifth,
       auth: false,
     },
     component: () => import(/* webpackChunkName: "privacy" */ '@/views/privacy/Privacy.vue'),
   },
   {
-    path: '/user-privacy',
+    path: '/userPrivacy',
     name: 'userPrivacy',
     meta: {
-      index: 5,
+      index: RouteIndex.Fifth,
       auth: false,
     },
     component: () => import(/* webpackChunkName: "privacy" */ '@/views/privacy/UserPrivacy.vue'),
