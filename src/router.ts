@@ -8,13 +8,11 @@ import 'nprogress/nprogress.css';
 
 NProgress.configure({ showSpinner: false });
 
-const RouteIndex = {
-  First: 1,
-  Second: 2,
-  Third: 3,
-  Fourth: 4,
-  Fifth: 5,
-};
+export enum RouteIndex {
+  First = 1,
+  Second = 2,
+  Third = 3,
+}
 
 const routes = [
   {
@@ -84,7 +82,7 @@ const routes = [
     path: '/user/login',
     name: 'login',
     meta: {
-      index: RouteIndex.Fifth,
+      index: RouteIndex.Third,
       auth: false,
     },
     component: () => import(/* webpackChunkName: "login" */ '@/views/user/Login.vue'),
@@ -93,7 +91,7 @@ const routes = [
     path: '/user/wechat',
     name: 'wechat',
     meta: {
-      index: RouteIndex.Fifth,
+      index: RouteIndex.Third,
       auth: false,
     },
     component: () => import(/* webpackChunkName: "wechat" */ '@/views/user/Wechat.vue'),
@@ -102,7 +100,7 @@ const routes = [
     path: '/user/sex',
     name: 'sex',
     meta: {
-      index: RouteIndex.Fifth,
+      index: RouteIndex.Third,
       auth: false,
     },
     component: () => import(/* webpackChunkName: "sex" */ '@/views/user/Sex.vue'),
@@ -111,7 +109,7 @@ const routes = [
     path: '/user/birthday',
     name: 'birthday',
     meta: {
-      index: RouteIndex.Fifth,
+      index: RouteIndex.Third,
       auth: false,
     },
     component: () => import(/* webpackChunkName: "birthday" */ '@/views/user/Birthday.vue'),
@@ -139,7 +137,7 @@ const routes = [
     path: '/privacy',
     name: 'privacy',
     meta: {
-      index: RouteIndex.Fifth,
+      index: RouteIndex.Third,
       auth: false,
     },
     component: () => import(/* webpackChunkName: "privacy" */ '@/views/privacy/Privacy.vue'),
@@ -148,7 +146,7 @@ const routes = [
     path: '/userPrivacy',
     name: 'userPrivacy',
     meta: {
-      index: RouteIndex.Fifth,
+      index: RouteIndex.Third,
       auth: false,
     },
     component: () => import(/* webpackChunkName: "privacy" */ '@/views/privacy/UserPrivacy.vue'),
