@@ -1,9 +1,7 @@
 export default {
-  appName: 'Cat',
-  companyName: '厦门网络科技有限公司',
-  copyright: 'Copyright ©2024 厦门网络科技有限公司版权所有',
-  whiteList: [],
+  appName: 'Best',
+  companyName: '厦门',
+  copyright: 'Copyright ©2024 厦门有限公司版权所有',
   primaryColor: '#FFEF3E',
-  defaultToken: '',
   version: process.env.version,
 };

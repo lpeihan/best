@@ -145,6 +145,10 @@ const routes = [
     },
     component: () => import(/* webpackChunkName: "privacy" */ '@/views/privacy/UserPrivacy.vue'),
   },
+  {
+    path: '/:pathMatch(.*)',
+    redirect: () => '/',
+  },
 ];
 
 const router = createRouter({

@@ -26,7 +26,8 @@
     "tinify",
     "unplugin",
     "vant",
-    "vconsole"
+    "vconsole",
+    "wechat"
   ],
   "i18n-ally.localesPaths": ["src/locales", "src/locales/lang"]
 }
