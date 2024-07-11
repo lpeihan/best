@@ -99,15 +99,15 @@ const handleClick = (item) => {
 
     .field-item {
       display: flex;
-      align-items: center;
-      margin-bottom: 12px;
-      border-radius: 8px;
       padding: 18px 12px;
+      margin-bottom: 12px;
       background: var(--white);
+      border-radius: 8px;
+      align-items: center;
 
       .icon {
-        margin-right: 12px;
         width: 36px;
+        margin-right: 12px;
       }
 
       .name {
@@ -129,8 +129,8 @@ const handleClick = (item) => {
   .copyright {
     margin-top: 20px;
     font-size: 12px;
-    text-align: center;
     color: var(--text-color-3);
+    text-align: center;
   }
 }
 </style>

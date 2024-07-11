@@ -123,8 +123,8 @@ const logout = async () => {
       padding: 18px 12px;
 
       .icon {
-        margin-right: 8px;
         width: 18px;
+        margin-right: 8px;
       }
 
       .name {
@@ -145,8 +145,8 @@ const logout = async () => {
   .copyright {
     margin-top: 24px;
     font-size: 12px;
-    text-align: center;
     color: var(--text-color-2);
+    text-align: center;
   }
 }
 </style>

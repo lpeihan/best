@@ -196,9 +196,9 @@ const callback = (page, res, error) => {
     color: #c8c9cc;
 
     .line {
-      margin: 0 10px;
       width: 40px;
       height: 1px;
+      margin: 0 10px;
       background: #ebedf0;
     }
   }
@@ -220,9 +220,9 @@ const callback = (page, res, error) => {
 
   .error-wrapper {
     :deep(.van-button--normal) {
-      margin-top: 20px;
       width: 100px;
       height: 38px;
+      margin-top: 20px;
       line-height: 38px;
     }
   }

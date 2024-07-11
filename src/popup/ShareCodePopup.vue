@@ -51,8 +51,8 @@ defineExpose({
   width: 320px;
 
   .share-code-box {
-    padding: 50px 54px;
     height: 200px;
+    padding: 50px 54px;
     text-align: center;
     background: url('./images/share_bg.png');
     background-size: 100% 100%;
@@ -74,14 +74,14 @@ defineExpose({
   }
 
   .share-code-btn {
-    margin: 16px 40px;
     height: 48px;
+    margin: 16px 40px;
     font-size: 15px;
     font-weight: bold;
+    line-height: 44px;
     text-align: center;
     background: url('./images/btn_bg.png');
     background-size: 100% 100%;
-    line-height: 44px;
   }
 
   .close {

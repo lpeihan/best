@@ -92,10 +92,10 @@ const handleBack = () => {
 .header {
   display: flex;
   align-items: center;
-  overflow: hidden;
   height: var(--top-bar-height);
-  text-align: center;
+  overflow: hidden;
   color: var(--text-color);
+  text-align: center;
   background: var(--white);
   box-sizing: content-box;
 
@@ -119,22 +119,22 @@ const handleBack = () => {
   &-left {
     display: flex;
     align-items: center;
-    padding-left: 16px;
     width: 80px;
     height: 100%;
+    padding-left: 16px;
 
     .back-wrapper {
       position: relative;
 
       &::after {
         position: absolute;
-        inset: -10px;
         overflow: hidden;
-        border-radius: 50%;
-        background-color: var(--black);
-        opacity: 0;
-        content: '';
         pointer-events: none;
+        background-color: var(--black);
+        border-radius: 50%;
+        content: '';
+        opacity: 0;
+        inset: -10px;
       }
 
       &:active::after {
@@ -153,16 +153,16 @@ const handleBack = () => {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    overflow: hidden;
-    padding-right: 12px;
     width: 80px;
     height: 100%;
+    padding-right: 12px;
+    overflow: hidden;
     font-size: 15px;
   }
 }
 
 .header-placeholder {
-  box-sizing: content-box;
   height: var(--top-bar-height);
+  box-sizing: content-box;
 }
 </style>

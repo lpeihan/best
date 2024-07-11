@@ -60,9 +60,9 @@ defineExpose({
     margin-bottom: 32px;
 
     .van-field {
+      text-align: center;
       border: 1px solid var(--border-color);
       border-radius: 4px;
-      text-align: center;
     }
   }
 }

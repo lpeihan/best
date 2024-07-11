@@ -80,11 +80,11 @@ const store = useStore();
 
   .share-code-section {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 8px;
     padding: 16px 12px;
     background: var(--white);
+    border-radius: 8px;
+    justify-content: space-between;
+    align-items: center;
 
     .share-code-left {
       display: flex;
@@ -92,11 +92,11 @@ const store = useStore();
       align-items: center;
 
       .copy-wrapper {
-        border-radius: var(--radius-max);
         padding: 2px 10px;
         font-size: 12px;
         color: #5a5cff;
         background: #dde7ff;
+        border-radius: var(--radius-max);
       }
     }
 
@@ -112,10 +112,10 @@ const store = useStore();
   }
 
   .share-info-section {
-    margin-top: 12px;
-    border-radius: 8px;
     padding: 4px 12px;
+    margin-top: 12px;
     background: var(--white);
+    border-radius: 8px;
 
     .title-wrapper {
       display: flex;
@@ -170,10 +170,10 @@ const store = useStore();
   }
 
   .share-rules-section {
-    margin-top: 12px;
-    border-radius: 8px;
     padding: 16px;
+    margin-top: 12px;
     background: var(--white);
+    border-radius: 8px;
     box-shadow: 0 2px 6px #f0f1f3;
 
     .title-wrapper {

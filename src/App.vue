@@ -55,8 +55,8 @@ watch(
 
 .app-view {
   position: relative;
-  overflow-x: hidden;
   min-height: 100%;
+  overflow-x: hidden;
   background: var(--white);
 }
 

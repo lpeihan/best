@@ -22,14 +22,14 @@ defineExpose({
 
 <style lang="less" scoped>
 .qrcode-popup {
-  border-radius: 8px;
-  padding: 40px 20px;
   width: 250px;
+  padding: 40px 20px;
   text-align: center;
+  border-radius: 8px;
 
   .qrcode {
-    border-radius: 8px;
     width: 160px;
+    border-radius: 8px;
   }
 
   .text {

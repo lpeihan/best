@@ -98,8 +98,8 @@ const handleClick = (item) => {
   background: #f5f5f5;
 
   .user-top-card {
-    padding: 40px 16px;
     height: 230px;
+    padding: 40px 16px;
     background: url('./images/user_bg.png');
     background-size: 100% 100%;
 
@@ -108,9 +108,9 @@ const handleClick = (item) => {
       align-items: center;
 
       .balance-item {
-        padding-left: 32px;
         width: 128px;
         height: 32px;
+        padding-left: 32px;
         font-size: 15px;
         font-weight: bold;
         line-height: 30px;
@@ -149,16 +149,16 @@ const handleClick = (item) => {
         padding: 4px 8px;
         font-size: 12px;
         background: rgba(#7e7e7e, 0.9);
-        border-top-left-radius: 4px;
         border-bottom-left-radius: 4px;
+        border-top-left-radius: 4px;
       }
 
       .avatar-wrapper {
+        width: 54px;
+        height: 54px;
         overflow: hidden;
         border: 2px solid var(--white);
         border-radius: 50%;
-        width: 54px;
-        height: 54px;
       }
 
       .nickname-wrapper {
@@ -184,10 +184,10 @@ const handleClick = (item) => {
 
   .user-fields {
     display: flex;
-    margin: -44px 16px 0;
-    border-radius: 8px;
     padding: 14px 4px;
+    margin: -44px 16px 0;
     background: var(--white);
+    border-radius: 8px;
     box-shadow: 0 0 5px rgba(#c1c1c1, 0.3);
 
     .fields-item {
@@ -207,13 +207,13 @@ const handleClick = (item) => {
 
   .share-wrapper {
     margin: 16px;
-    border-radius: 4px;
     font-weight: bold;
-    text-align: center;
-    color: var(--white);
-    background: #1e1e1e;
-    box-shadow: 0 4px 4px 0 rgb(162 162 162 / 30%);
     line-height: 44px;
+    color: var(--white);
+    text-align: center;
+    background: #1e1e1e;
+    border-radius: 4px;
+    box-shadow: 0 4px 4px 0 rgb(162 162 162 / 30%);
   }
 
   .social-section {
@@ -225,8 +225,8 @@ const handleClick = (item) => {
       font-weight: bold;
 
       img {
-        margin-right: 8px;
         width: 20px;
+        margin-right: 8px;
       }
     }
   }

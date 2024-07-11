@@ -56,8 +56,8 @@ const data = reactive({
       }
 
       .van-picker__frame {
-        border-radius: 8px;
         background: rgb(0 0 0 / 10%);
+        border-radius: 8px;
 
         &::after {
           border-color: transparent;

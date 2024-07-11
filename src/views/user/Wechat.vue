@@ -20,11 +20,11 @@ const bind = () => {};
   background: #ffef3e;
 
   .logo-wrapper {
-    margin: 40px auto 60px;
-    border-radius: 50%;
     width: 80px;
     height: 80px;
+    margin: 40px auto 60px;
     background: var(--black);
+    border-radius: 50%;
   }
 
   .common-button {

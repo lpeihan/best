@@ -55,16 +55,16 @@ export default {
       background: var(--white);
 
       .nickname {
-        margin-left: 4px;
         width: 100px;
+        margin-left: 4px;
         font-weight: bold;
       }
 
       .time {
         margin-top: 3px;
         font-size: 13px;
-        text-align: center;
         color: var(--text-color-2);
+        text-align: center;
         flex: 1;
       }
 

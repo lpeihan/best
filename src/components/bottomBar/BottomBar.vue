@@ -78,12 +78,12 @@ const handleClick = (item) => {
   left: 0;
   z-index: 10;
   display: flex;
-  align-items: center;
-  border-radius: 0;
-  padding: 0 8px 4px;
   height: var(--bottom-bar-height);
+  padding: 0 8px 4px;
   background: var(--white);
+  border-radius: 0;
   box-shadow: 0 0 10px rgba(#c1c1c1, 0.5);
+  align-items: center;
 
   .bar-item {
     flex: 1;

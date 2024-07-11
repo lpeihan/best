@@ -117,8 +117,8 @@ defineExpose({
     text-align: center;
 
     .share-item {
-      margin-bottom: 20px;
       width: 25%;
+      margin-bottom: 20px;
 
       img {
         width: 36px;

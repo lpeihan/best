@@ -74,23 +74,23 @@ export default {
 
   &-wrapper {
     z-index: 3000;
-    border-radius: 5px;
     padding: 28px;
-    text-align: center;
     color: white;
+    text-align: center;
     background: rgb(0 0 0 / 70%);
+    border-radius: 5px;
     box-sizing: border-box;
   }
 
   &-spin {
+    width: 32px;
+    height: 32px;
     margin: 0 auto;
     border: 5px solid transparent;
     border-top-color: @spin-color;
     border-bottom-color: @spin-color;
     border-left-color: @spin-color;
     border-radius: 50%;
-    width: 32px;
-    height: 32px;
     animation: spin-rotate 0.8s infinite linear;
   }
 
