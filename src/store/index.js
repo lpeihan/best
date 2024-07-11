@@ -11,7 +11,9 @@ import storage from '@/utils/storage';
 export const useStore = defineStore('store', {
   state: () => {
     return {
-      userInfo: {},
+      userInfo: {
+        id: 0,
+      },
       statusBarHeight: 0,
     };
   },

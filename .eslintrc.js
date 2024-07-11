@@ -5,9 +5,9 @@ module.exports = {
   },
   extends: ['plugin:vue/vue3-essential', 'eslint:recommended', 'prettier'],
   parserOptions: {
-    parser: '@babel/eslint-parser',
+    parser: ['@babel/eslint-parser', '@typescript-eslint/parser'],
   },
-  plugins: ['import'],
+  plugins: ['import', '@typescript-eslint'],
   rules: {
     'vue/multi-word-component-names': 'off',
     eqeqeq: 2,
