@@ -27,7 +27,7 @@ const parseJson = (data) => {
 const bridge = {
   isApp: () => Boolean(window[BRIDGE_NAME]),
   invoke(name, params = {}, options = {}) {
-    if (!this.isApp()) {
+    if (this.isApp() === false) {
       return Promise.resolve({ code: Code.Success, data: '' });
     }
 
