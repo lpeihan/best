@@ -1,19 +1,19 @@
 import { createI18n } from 'vue-i18n';
 
-import enUS from './lang/en_US.json';
-import koKR from './lang/ko_KR.json';
-import zhCN from './lang/zh_CN.json';
+import enUS from './lang/en-US';
+import koKR from './lang/ko-KR';
+import zhCN from './lang/zh-CN';
 
-const DEFAULT_LOCALE = 'zh_CN';
+const defaultLang = 'zh-CN';
 
 const i18n = createI18n({
   legacy: false,
-  locale: DEFAULT_LOCALE,
-  fallbackLocale: DEFAULT_LOCALE,
+  locale: defaultLang,
+  fallbackLocale: defaultLang,
   messages: {
-    zh_CN: { ...zhCN },
-    en_US: { ...enUS },
-    ko_KR: { ...koKR },
+    'zh-CN': { ...zhCN },
+    'en-US': { ...enUS },
+    'ko-KR': { ...koKR },
   },
 });
 
