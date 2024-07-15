@@ -5,7 +5,7 @@ module.exports = {
     NODE_ENV: '"production"',
     MODE: '"dev"',
     API_URL: '"/"',
-    URL: '"http://localhost"',
+    SITE_URL: '"http://localhost"',
   },
   ossDir: 'web-dev',
   publicPath: '/',
