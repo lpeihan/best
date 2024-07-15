@@ -9,5 +9,5 @@ module.exports = merge(
     outputDir: 'dist',
     port: 7070,
   },
-  ...require(`./${mode}.env.js`),
+  require(`./${mode}.env.js`),
 );

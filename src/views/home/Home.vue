@@ -12,11 +12,16 @@
 
       <van-button type="primary" @click="handleChangeColor">Change Color</van-button>
     </div>
+
+    <div>
+      <van-button @click="showDialog({ message: '提示' })">showDialog</van-button>
+    </div>
     <bottom-bar />
   </div>
 </template>
 
 <script setup>
+import { showDialog } from 'vant';
 import { onMounted } from 'vue';
 
 import { getUserInfo } from '@/api/user';
