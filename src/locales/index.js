@@ -5,12 +5,13 @@ import zhCN from './lang/zh-CN';
 
 import storage from '@/utils/storage';
 
-const defaultLang = 'zh-CN';
+const SUPPORTED_LANGUAGES = ['zh-CN', 'en-US', 'ko-KR'];
+const DEFAULT_LANG = 'zh-CN';
 
 const i18n = createI18n({
   legacy: false,
-  locale: defaultLang,
-  fallbackLocale: defaultLang,
+  locale: DEFAULT_LANG,
+  fallbackLocale: DEFAULT_LANG,
   messages: {
     'zh-CN': { ...zhCN },
     'en-US': {},
@@ -19,16 +20,11 @@ const i18n = createI18n({
 });
 
 async function loadLocaleMessages(locale) {
-  switch (locale) {
-    case 'zh-CN':
-      return await import('./lang/zh-CN');
-    case 'en-US':
-      return await import('./lang/en-US');
-    case 'ko-KR':
-      return await import('./lang/ko-KR');
-    default:
-      return await import('./lang/zh-CN');
+  if (!SUPPORTED_LANGUAGES.includes(locale)) {
+    locale = DEFAULT_LANG;
   }
+
+  return await import(`./lang/${locale}`);
 }
 
 export async function setLocale(locale) {
@@ -48,11 +44,11 @@ export function setVantLocale(locale) {
     'ko-KR': require('vant/es/locale/lang/ko-KR').default,
   };
 
-  Locale.use(locale, vantLocales[locale]);
+  Locale.use(locale, vantLocales[locale] || vantLocales['zh-CN']);
 }
 
 function initializeLocale() {
-  const storageLocale = storage.getItem('locale') || defaultLang;
+  const storageLocale = storage.getItem('locale') || DEFAULT_LANG;
   setLocale(storageLocale);
 }
 
