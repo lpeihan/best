@@ -1,9 +1,9 @@
 import { Locale } from 'vant';
 import { createI18n } from 'vue-i18n';
 
-import enUS from './lang/en-US';
-import koKR from './lang/ko-KR';
 import zhCN from './lang/zh-CN';
+
+import storage from '@/utils/storage';
 
 const defaultLang = 'zh-CN';
 
@@ -13,14 +13,32 @@ const i18n = createI18n({
   fallbackLocale: defaultLang,
   messages: {
     'zh-CN': { ...zhCN },
-    'en-US': { ...enUS },
-    'ko-KR': { ...koKR },
+    'en-US': {},
+    'ko-KR': {},
   },
 });
 
-export function setLocale(locale) {
+async function loadLocaleMessages(locale) {
+  switch (locale) {
+    case 'zh-CN':
+      return await import('./lang/zh-CN');
+    case 'en-US':
+      return await import('./lang/en-US');
+    case 'ko-KR':
+      return await import('./lang/ko-KR');
+    default:
+      return await import('./lang/zh-CN');
+  }
+}
+
+export async function setLocale(locale) {
+  const messages = await loadLocaleMessages(locale);
+
+  i18n.global.setLocaleMessage(locale, messages.default);
   i18n.global.locale.value = locale;
+
   setVantLocale(locale);
+  storage.setItem('locale', locale);
 }
 
 export function setVantLocale(locale) {
@@ -32,5 +50,12 @@ export function setVantLocale(locale) {
 
   Locale.use(locale, vantLocales[locale]);
 }
+
+function initializeLocale() {
+  const storageLocale = storage.getItem('locale') || defaultLang;
+  setLocale(storageLocale);
+}
+
+initializeLocale();
 
 export default i18n;
