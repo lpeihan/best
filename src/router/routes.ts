@@ -1,4 +1,6 @@
-export default [
+import { RouteRecordRaw } from 'vue-router';
+
+const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'home',
@@ -139,3 +141,5 @@ export default [
     redirect: () => '/',
   },
 ];
+
+export default routes;
