@@ -4,8 +4,11 @@ module.exports = {
       '@babel/preset-env',
       {
         useBuiltIns: 'usage', // adds specific imports for polyfills when they are used in each file.
-        modules: false, // preserve ES modules.
+        modules: 'auto', // preserve ES modules.
         corejs: { version: 3, proposals: true }, // enable polyfilling of every proposal supported by core-js.
+        targets: {
+          node: 'current', // Ensures compatibility with the current Node.js version used by Jest.
+        },
       },
     ],
   ],
