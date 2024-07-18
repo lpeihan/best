@@ -1,10 +1,10 @@
 <template>
-  <van-popup v-model:show="data.show" class="common-popup">
+  <van-popup v-model:show="state.show" class="common-popup">
     <div class="popup-title van-hairline--bottom">请填写邀请码</div>
 
     <div class="content-container">
       <div class="input-wrapper">
-        <van-field v-model="data.value" label="" placeholder="请填写邀请码" />
+        <van-field v-model="state.value" label="" placeholder="请填写邀请码" />
       </div>
 
       <common-button @click="confirm">确定</common-button>
@@ -23,21 +23,21 @@ import { reactive } from 'vue';
 import { useStore } from '@/store';
 
 const store = useStore();
-const data = reactive({
+const state = reactive({
   show: false,
   value: undefined,
 });
 
 const open = () => {
-  data.show = true;
+  state.show = true;
 };
 
 const close = () => {
-  data.show = false;
+  state.show = false;
 };
 
 const confirm = async () => {
-  if (!data.value) {
+  if (!state.value) {
     showToast('请输入邀请码');
     return;
   }

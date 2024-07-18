@@ -7,7 +7,7 @@
       <div class="logo-wrapper"></div>
 
       <van-field
-        v-model="data.form.phone_number"
+        v-model="state.form.phone_number"
         :border="false"
         placeholder="请输入手机号码"
         type="tel"
@@ -15,15 +15,15 @@
       />
 
       <van-field
-        v-model="data.form.code"
+        v-model="state.form.code"
         :border="false"
         placeholder="请输入验证码"
         type="digit"
         maxlength="4"
       >
         <template v-slot:button>
-          <div class="send-btn" v-if="data.timeCount <= 0" @click="handleSendCode">获取验证码</div>
-          <div class="send-btn disabled" v-else>{{ data.timeCount }}s后再获取</div>
+          <div class="send-btn" v-if="state.timeCount <= 0" @click="handleSendCode">获取验证码</div>
+          <div class="send-btn disabled" v-else>{{ state.timeCount }}s后再获取</div>
         </template>
       </van-field>
 
@@ -65,7 +65,7 @@ const validator = new Schema({
 
 const store = useStore();
 const router = useRouter();
-const data = reactive({
+const state = reactive({
   form: {
     phone_number: '',
     code: '',
@@ -76,42 +76,42 @@ const data = reactive({
 });
 
 const handleSendCode = async () => {
-  if (data.timeCount > 0) {
+  if (state.timeCount > 0) {
     return;
   }
 
-  validator.validate(data.form, async (errors) => {
+  validator.validate(state.form, async (errors) => {
     if (errors && errors[0].field === 'phone_number') {
       showToast(errors[0].message);
       return;
     }
 
-    data.timeCount = 59;
+    state.timeCount = 59;
 
-    data.timer = setInterval(() => {
-      data.timeCount--;
+    state.timer = setInterval(() => {
+      state.timeCount--;
 
-      if (data.timeCount <= 0) {
-        clearInterval(data.timer);
-        data.timeCount = 0;
+      if (state.timeCount <= 0) {
+        clearInterval(state.timer);
+        state.timeCount = 0;
       }
     }, 1000);
   });
 };
 
 const handleLogin = async () => {
-  if (!data.checked) {
+  if (!state.checked) {
     showToast('请勾选同意用户协议及隐私协议');
     return;
   }
 
-  validator.validate(data.form, async (errors) => {
+  validator.validate(state.form, async (errors) => {
     if (errors) {
       showToast(errors[0].message);
       return;
     }
 
-    setToken(data.form.phone_number);
+    setToken(state.form.phone_number);
     showToast('登录成功');
 
     store.getUserInfo();

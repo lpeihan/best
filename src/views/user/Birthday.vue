@@ -10,7 +10,7 @@
     <div class="birthday-sub-title">请正确选择出生日期，这样才能更好的结交朋～</div>
 
     <div class="birthday-picker">
-      <van-date-picker :show-toolbar="false" v-model="data.birthday" />
+      <van-date-picker :show-toolbar="false" v-model="state.birthday" />
     </div>
 
     <common-button block>完成</common-button>
@@ -22,7 +22,7 @@
 <script setup>
 import { reactive } from 'vue';
 
-const data = reactive({
+const state = reactive({
   birthday: ['2020', '01', '02'],
 });
 </script>

@@ -3,7 +3,7 @@
     <div class="share-code-body">
       <div class="share-code-box">
         <div class="title">填写邀请码</div>
-        <van-field placeholder="请填写邀请码" v-model="data.value" />
+        <van-field placeholder="请填写邀请码" v-model="state.value" />
       </div>
       <div class="share-code-btn" @click="confirm">确认</div>
 
@@ -22,18 +22,18 @@ import { usePopup } from './helper';
 
 const emits = defineEmits(['success']);
 
-const data = reactive({
+const state = reactive({
   value: undefined,
 });
 const { show, open, close } = usePopup();
 
 const confirm = async () => {
-  if (!data.value) {
+  if (!state.value) {
     showToast('请输入正确的邀请码');
     return;
   }
 
-  emits('success', data.value);
+  emits('success', state.value);
   close();
 };
 

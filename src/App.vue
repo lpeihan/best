@@ -1,8 +1,8 @@
 <template>
   <div class="app-root">
-    <router-view v-slot="{ Component }" class="app-view" :key="data.key">
-      <transition :name="data.transitionName" mode="out-in">
-        <keep-alive :include="data.keepAlive">
+    <router-view v-slot="{ Component }" class="app-view" :key="state.key">
+      <transition :name="state.transitionName" mode="out-in">
+        <keep-alive :include="state.keepAlive">
           <component :is="Component" :key="$route.name" />
         </keep-alive>
       </transition>
@@ -18,7 +18,7 @@ import eventBus from '@/utils/eventBus';
 
 const router = useRouter();
 
-const data = reactive({
+const state = reactive({
   transitionName: '',
   key: 0,
   keepAlive: [],
@@ -26,7 +26,7 @@ const data = reactive({
 
 onMounted(async () => {
   eventBus.on('reloadApp', () => {
-    data.key++;
+    state.key++;
   });
 });
 
@@ -34,15 +34,15 @@ watch(
   () => router.currentRoute.value,
   (to, from) => {
     if (!from.name || to.meta.index === from.meta.index) {
-      data.transitionName = '';
+      state.transitionName = '';
 
       return;
     }
 
     if (to.meta.index > from.meta.index) {
-      data.transitionName = 'slide-left';
+      state.transitionName = 'slide-left';
     } else {
-      data.transitionName = 'slide-right';
+      state.transitionName = 'slide-right';
     }
   },
 );
