@@ -30,5 +30,11 @@
     "vconsole",
     "wechat"
   ],
-  "i18n-ally.localesPaths": ["src/locales", "src/locales/lang"]
+  "i18n-ally.localesPaths": [
+    "src/locales",
+    "src/locales/lang"
+  ],
+  "[nginx]": {
+    "editor.defaultFormatter": "raynigon.nginx-formatter"
+  }
 }
