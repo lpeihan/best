@@ -2,7 +2,7 @@
 FROM node:18-slim AS build
 
 # 安装 pnpm
-RUN npm i -g pnpm
+RUN sudo npm i -g pnpm
 
 # 设置环境变量
 ENV PNPM_HOME="/pnpm"
