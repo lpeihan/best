@@ -2,7 +2,8 @@
 FROM node:18-slim AS build
 
 # 安装 pnpm
-RUN npm install -g pnpm
+RUN npm config set registry https://registry.npmmirror.com/
+RUN npm i -g pnpm --verbose
 
 # 设置环境变量
 ENV PNPM_HOME="/pnpm"
