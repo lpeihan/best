@@ -4,7 +4,7 @@
 IMAGE_NAME="best"
 IMAGE_TAG="v1"
 CONTAINER_NAME="best_container"
-HOST_PORT=8082  # 修改为未占用的端口
+HOST_PORT=8081  # 修改为未占用的端口
 CONTAINER_PORT=80
 
 # 确保脚本在项目的根目录执行
