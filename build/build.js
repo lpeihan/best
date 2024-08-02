@@ -1,5 +1,6 @@
 'use strict';
 
+const CompressionPlugin = require('compression-webpack-plugin');
 const { rimraf } = require('rimraf');
 const webpack = require('webpack');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -17,6 +18,10 @@ logWithSpinner('Building for production...\n');
 rimraf(paths.resolve(config.outputDir)).then(() => {
   if (process.env.npm_config_report) {
     webpackProdConf.plugins.push(new BundleAnalyzerPlugin());
+  }
+
+  if (process.env.gzip) {
+    webpackProdConf.plugins.push(new CompressionPlugin());
   }
 
   webpack(webpackProdConf, (err, stats) => {
