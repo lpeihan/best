@@ -97,6 +97,11 @@ vscode 的配置在 .vscode/settings.json
 
 ## docker
 
-docker build -t best:v1 . //注意最后的点不能省略
+docker build -t best:v1 .
 
 docker run -p 8080:80 -d best:v1
+
+## build
+
+chmod +x build.sh
+./build.sh

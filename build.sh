@@ -4,8 +4,19 @@
 IMAGE_NAME="best"
 IMAGE_TAG="v1"
 CONTAINER_NAME="best_container"
-HOST_PORT=8081
+HOST_PORT=8082  # 修改为未占用的端口
 CONTAINER_PORT=80
+
+# 确保脚本在项目的根目录执行
+PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# 切换到项目目录
+cd $PROJECT_DIR
+
+# 更新代码库
+echo "Switching to master branch and pulling latest changes..."
+git checkout master
+git pull
 
 # 构建 Docker 镜像
 echo "Building Docker image $IMAGE_NAME:$IMAGE_TAG..."
