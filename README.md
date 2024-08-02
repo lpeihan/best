@@ -101,6 +101,8 @@ docker build -t best:v1 .
 
 docker run -p 8080:80 -d best:v1
 
+docker exec -it 83e3d102cb96 /bin/sh
+
 ## build
 
 chmod +x build.sh
