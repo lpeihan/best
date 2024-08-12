@@ -16,6 +16,7 @@ module.exports = {
     eqeqeq: 2,
     'no-underscore-dangle': ['error', { allow: ['__name'] }],
     'no-else-return': 2,
+    'arrow-parens': ['error', 'always'],
     'import/order': [
       'error',
       {
