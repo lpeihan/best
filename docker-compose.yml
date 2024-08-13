@@ -1,0 +1,6 @@
+version: '3'
+services:
+  best:
+    build: ./
+    ports:
+      - '8082:80'
