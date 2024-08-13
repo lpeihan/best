@@ -1,0 +1,46 @@
+workflow:
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+    - if: '$CI_COMMIT_BRANCH == "dev"'
+
+image: node:16
+
+stages:
+  - build
+  - deploy
+
+cache:
+  paths:
+    - node_modules
+
+build-job:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - dist
+
+deploy-job-dev:
+  stage: deploy
+  image: ringcentral/sshpass:latest
+  script:
+    - echo "----dev----"
+    - echo "Password ---- $PASSWORD"
+    - echo "IP ---- $IP"
+    - sshpass -p $PASSWORD scp -o StrictHostKeyChecking=no -r ./dist/* root@$IP:/root/web/best/dist
+  only:
+    - dev
+
+deploy-job-prod:
+  stage: deploy
+  image: ringcentral/sshpass:latest
+  script:
+    - echo "----master----"
+    - echo "Password ---- $PASSWORD"
+    - echo "IP ---- $IP"
+    - sshpass -p $PASSWORD scp -o StrictHostKeyChecking=no -r ./dist/* root@$IP:/root/web/best/dist
+  only:
+    - master
+  when: manual
