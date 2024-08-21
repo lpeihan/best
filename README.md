@@ -107,3 +107,17 @@ docker exec -it 83e3d102cb96 /bin/sh
 
 chmod +x build.sh
 ./build.sh
+
+## 常用网站
+
+```shell
+# Icons
+https://free-icons.github.io/free-icons/
+https://yesicon.app/
+
+# UI
+https://ui.meiye.art/
+
+# Video
+https://www.aigei.com/
+```
