@@ -103,6 +103,10 @@ docker run -p 8080:80 -d best:v1
 
 docker exec -it 83e3d102cb96 /bin/sh
 
+## docker compose
+
+docker-compose up -d
+
 ## build
 
 chmod +x build.sh
