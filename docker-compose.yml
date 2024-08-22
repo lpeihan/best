@@ -2,8 +2,10 @@ version: '3'
 services:
   best:
     container_name: 'best_container'
-    image: 'best:1.0'
+    image: 'best:1.1'
     build: ./
     ports:
       - '8082:80'
+    volumes:
+      - ~/Documents/docker/:/web
     restart: on-failure
