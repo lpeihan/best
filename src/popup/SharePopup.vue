@@ -17,6 +17,7 @@
 import { computed } from 'vue';
 
 import { usePopup } from './helper';
+import { ShareTypes } from './types';
 
 import config from '@/config';
 import { showQrCodePopup } from '@/popup';
@@ -24,51 +25,42 @@ import { useStore } from '@/store';
 import { copyText } from '@/utils';
 import bridge from '@/utils/bridge';
 
-const ShareType = {
-  Wechat: 'Wechat',
-  Moments: 'Moments',
-  QQ: 'QQ',
-  QZone: 'QZone',
-  QrCode: 'QrCode',
-  Link: 'Link',
-};
-
 const store = useStore();
 const { show, close, open } = usePopup();
 
 const fields = computed(() => [
   {
     icon: require('@/assets/images/ico_wechat.png'),
-    type: ShareType.Wechat,
+    type: ShareTypes.Wechat,
     text: '微信',
     platform: 1,
   },
   {
     icon: require('@/assets/images/ico_moments.png'),
-    type: ShareType.Moments,
+    type: ShareTypes.Moments,
     text: '朋友圈',
     platform: 2,
   },
   {
     icon: require('@/assets/images/ico_qq.png'),
-    type: ShareType.QQ,
+    type: ShareTypes.QQ,
     text: 'QQ',
     platform: 3,
   },
   {
     icon: require('@/assets/images/ico_qq_zone.png'),
-    type: ShareType.QZone,
+    type: ShareTypes.QZone,
     text: 'QQ空间',
     platform: 4,
   },
   {
     icon: require('@/assets/images/ico_qr_code.png'),
-    type: ShareType.QrCode,
+    type: ShareTypes.QrCode,
     text: '扫码',
   },
   {
     icon: require('@/assets/images/ico_link.png'),
-    type: ShareType.Link,
+    type: ShareTypes.Link,
     text: '复制链接',
   },
 ]);
@@ -76,9 +68,9 @@ const fields = computed(() => [
 const handleClick = (item) => {
   const { type, platform } = item;
 
-  if (type === ShareType.QrCode) {
+  if (type === ShareTypes.QrCode) {
     showQrCodePopup();
-  } else if (type === ShareType.Link) {
+  } else if (type === ShareTypes.Link) {
     copyText(store.shareUrl);
   } else {
     const random = (Math.random() * (999 - 100) + 100).toFixed(2);
